@@ -1,14 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบเข้าใช้โรงครัว - มหาวิทยาลัยพะเยา</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>984984894</p>
-    <p>หิวข้าวครับ</p>
-    <p>อยากมีเเฟน</p>
-    <p>โสดเกิ้นนนน</p>
+<div id="login-screen">
+<form class="card" id="login-form" autocomplete="on">
+<div class="logo-wrap">
+<img src="Image (1).jpg" style="width: 120px; height: 120px; display: block; margin: 0 auto; object-fit: cover; border-radius: 50%;" alt="โลโก้มหาวิทยาลัยพะเยา">
+</div>
+<h1>ระบบเข้าใช้โรงครัว</h1>
+<h2>มหาวิทยาลัยพะเยา</h2>
+<div class="field">
+<label for="student-id">รหัสนิสิต (Student ID)</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11.5" r="2"/><path d="M5.5 16c.5-1.6 1.8-2.5 3-2.5s2.5.9 3 2.5"/><path d="M14 9h6M14 13h6"/></svg>
+<input id="student-id" name="student-id" type="text" inputmode="numeric" placeholder="กรอกรหัสนิสิต" maxlength="8" autocomplete="username">
+<span class="suffix">@up.ac.th</span>
+</div>
+</div>
+<div class="field">
+<label for="password">รหัสผ่าน (Password)</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+<input id="password" name="password" type="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password">
+</div>
+</div>
+<button type="submit" class="btn-primary" id="login-btn">เข้าสู่ระบบ (LOGIN)</button>
+<div id="login-msg"></div>
+<div class="hint-row">
+<p class="hint" id="go-to-register">สมัครสมาชิก</p>
+<span class="hint-divider">|</span>
+<p class="hint" id="switch-to-staff">เจ้าหน้าที่</p>
+</div>
+</form>
+<form class="card hidden" id="register-form" autocomplete="on">
+<div class="logo-wrap">
+<img src="Image (1).jpg" style="width: 120px; height: 120px; display: block; margin: 0 auto; object-fit: cover; border-radius: 50%;" alt="โลโก้มหาวิทยาลัยพะเยา">
+</div>
+<h1>สมัครสมาชิก</h1>
+<h2>สำหรับนิสิตมหาวิทยาลัยพะเยา</h2>
+<div class="field">
+<label for="reg-student-id">รหัสนิสิต (Student ID)</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11.5" r="2"/><path d="M5.5 16c.5-1.6 1.8-2.5 3-2.5s2.5.9 3 2.5"/><path d="M14 9h6M14 13h6"/></svg>
+<input id="reg-student-id" name="reg-student-id" type="text" inputmode="numeric" placeholder="กรอกรหัสนิสิต" maxlength="8" autocomplete="username">
+<span class="suffix">@up.ac.th</span>
+</div>
+</div>
+<div class="field">
+<label for="reg-fullname">ชื่อ - นามสกุล</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+<input id="reg-fullname" name="reg-fullname" type="text" placeholder="นายสมชาย ใจดี" autocomplete="name">
+</div>
+</div>
+<div class="field">
+<label for="reg-faculty">คณะ / สาขาวิชา</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+<input id="reg-faculty" name="reg-faculty" type="text" placeholder="วิทยาศาสตร์ / เทคโนโลยีสารสนเทศ" autocomplete="off">
+</div>
+</div>
+<div class="field">
+<label for="reg-password">ตั้งรหัสผ่าน</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+<input id="reg-password" name="reg-password" type="password" placeholder="ตั้งรหัสผ่าน (อย่างน้อย 4 ตัว)" autocomplete="new-password">
+</div>
+</div>
+<div class="field">
+<label for="reg-confirm-password">ยืนยันรหัสผ่าน</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M9 15l2 2 4-4"/></svg>
+<input id="reg-confirm-password" name="reg-confirm-password" type="password" placeholder="กรอกรหัสผ่านอีกครั้ง" autocomplete="new-password">
+</div>
+</div>
+<button type="submit" class="btn-primary" id="register-btn">สมัครสมาชิก</button>
+<div id="register-msg"></div>
+<p class="hint" id="go-to-login">กลับไปหน้าเข้าสู่ระบบ</p>
+</form>
+<form class="card hidden" id="staff-login-form" autocomplete="on">
+<div class="logo-wrap">
+<img src="Image (1).jpg" style="width: 120px; height: 120px; display: block; margin: 0 auto; object-fit: cover; border-radius: 50%;" alt="โลโก้มหาวิทยาลัยพะเยา">
+</div>
+<h1>ระบบหลังบ้าน</h1>
+<h2>สำหรับเจ้าหน้าที่เท่านั้น</h2>
+<div class="field">
+<label for="staff-username">ชื่อผู้ใช้ (Username)</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11.5" r="2"/><path d="M5.5 16c.5-1.6 1.8-2.5 3-2.5s2.5.9 3 2.5"/><path d="M14 9h6M14 13h6"/></svg>
+<input id="staff-username" name="staff-username" type="text" placeholder="ชื่อผู้ใช้เจ้าหน้าที่" autocomplete="username">
+</div>
+</div>
+<div class="field">
+<label for="staff-password">รหัสผ่าน (Password)</label>
+<div class="input-row">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+<input id="staff-password" name="staff-password" type="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password">
+</div>
+</div>
+<button type="submit" class="btn-primary" id="staff-login-btn">เข้าสู่ระบบเจ้าหน้าที่</button>
+<div id="staff-login-msg"></div>
+<p class="hint" id="switch-to-student">กลับไปหน้าเข้าสู่ระบบนิสิต</p>
+</form>
+</div>
+<div id="app-screen" class="hidden">
+<div class="topbar">
+<div class="brand">
+<div class="brand-icon">
+<img src="Image (1).jpg" style="width: 32px; height: 32px; display: block; margin: 0 auto; object-fit: cover; border-radius: 50%;" alt="โลโก้มหาวิทยาลัยพะเยา">
+</div>
+<div class="brand-text" id="brand-title">ระบบเข้าใช้โรงครัว<span id="who-label">มหาวิทยาลัยพะเยา</span></div>
+</div>
+<button class="logout-btn" id="logout-btn">ออกจากระบบ</button>
+</div>
+<div id="booking-view">
+<div class="panel">
+<h3>เลือกวันที่</h3>
+<div class="date-scroll" id="date-scroll"></div>
+</div>
+<div class="panel">
+<h3>เลือกช่วงเวลา</h3>
+<div class="slot-list" id="slot-list"></div>
+<div class="confirm-bar">
+<div class="summary" id="booking-summary">เลือกวันและเวลาที่ต้องการจอง</div>
+<button class="btn-primary" id="confirm-btn" disabled>ยืนยันการจอง</button>
+<div id="booking-msg"></div>
+</div>
+</div>
+<div class="panel">
+<h3>การจองของฉัน <span class="count-badge" id="my-booking-count">0</span></h3>
+<div id="my-booking-list"></div>
+</div>
+</div>
+<div id="booking-success-view" class="hidden">
+<div class="panel" style="text-align:center; padding: 36px 24px;">
+<div class="success-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+</div>
+<h3 style="font-size:18px; margin-bottom:6px;">จองเสร็จสิ้น</h3>
+<p style="color:var(--text-secondary); font-size:13px; margin-bottom:20px;">ระบบได้บันทึกการจองของคุณเรียบร้อยแล้ว</p>
+<div class="success-detail">
+<div class="success-row"><span>รหัสนิสิต</span><span id="success-student"></span></div>
+<div class="success-row"><span>ชื่อผู้จอง</span><span id="success-name"></span></div>
+<div class="success-row"><span>วันที่</span><span id="success-date"></span></div>
+<div class="success-row"><span>ช่วงเวลา</span><span id="success-slot"></span></div>
+</div>
+<div class="btn-group">
+<button class="btn-primary" id="success-back-btn">จองคิวเพิ่มเติม</button>
+<button class="btn-secondary" id="success-cancel-btn">ยกเลิกการจองนี้</button>
+</div>
+<div class="cancel-hint hidden" id="success-cancel-hint">กดอีกครั้งเพื่อยืนยันการยกเลิก (ภายใน 3 วินาที)</div>
+</div>
+</div>
+<div id="admin-view" class="hidden">
+<div class="panel">
+<div class="admin-header">
+<div>
+<h3>ภาพรวมการเข้าใช้</h3>
+<div class="last-updated" id="last-updated"></div>
+</div>
+<button class="refresh-btn" id="admin-refresh">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+         รีเฟรช
+</button>
+</div>
+<div class="stat-row">
+<div class="stat-card"><div class="num" id="stat-total">0</div><div class="label">การจองทั้งหมด</div></div>
+<div class="stat-card"><div class="num" id="stat-today">0</div><div class="label">วันนี้</div></div>
+<div class="stat-card"><div class="num" id="stat-upcoming">0</div><div class="label">ที่กำลังจะถึง</div></div>
+</div>
+<div id="admin-table-wrap">
+<table>
+<thead><tr><th>รหัสนิสิต</th><th>ชื่อ-นามสกุล</th><th>วันที่</th><th>ช่วงเวลา</th><th>เวลาที่จอง</th></tr></thead>
+<tbody id="admin-tbody"></tbody>
+</table>
+<div class="empty-note hidden" id="admin-empty">ยังไม่มีข้อมูลการจอง</div>
+</div>
+</div>
+</div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
